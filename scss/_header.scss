@@ -1,0 +1,128 @@
+header{
+    width: 360px;
+    min-height: 100%;
+    background-color: #efefef;
+    position: fixed;
+    z-index: 3;
+    left: 0;
+    top: 0;
+    
+    .logo {
+        display: block;
+        // float: left;
+        text-align: center;
+        font-size: 2em;
+        padding: 10px 20px;
+        text-decoration: none;
+        margin-top: 50px;
+    }
+
+    .menu-btn{
+        display: none;
+        &:hover{ background-color: #f4f4f4;}
+    }
+
+    .menu-icon{
+        cursor: pointer;
+        display: inline-block;
+        float: right;
+        padding: 28px 20px;
+        position: relative;
+        user-select: none;
+        @media (min-width: 768px) { display: none;}
+        span.navicon {
+            background: #333;
+            display: block;
+            height: 2px;
+            position: relative;
+            transition: background .2s ease-out;
+            width: 18px;
+            &:before, &:after {
+              background: #333;
+              content: "";
+              display: block;
+              height: 100%;
+              position: absolute;
+              transition: all .2s ease-out;
+              width: 100%;
+            }
+            &:before { top: 5px;}
+            &:after { top: -5px;}
+          }
+    }
+
+    ul.menu{
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        overflow: hidden;
+        max-height: 0;
+        transition: all .2s ease-out;
+        transform-origin: 50% 50%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        @media (min-width: 768px) {
+            max-height: none;
+        }
+
+        li{
+            width: 100%;
+            height: inherit;
+            text-align: center;
+            // outline: 1px solid blue;
+            padding: 10px 20px;
+            @media (min-width: 768px) {
+                float: left;
+            }
+            a{
+                display: inline-block;
+                padding: 10px 0;
+                text-decoration: none;
+                border-bottom: 1px solid transparent;
+                transition: all .3s;
+                // outline: 1px solid red;
+                position: relative;
+                &:after{
+                    content: "";
+                    width: 0%;
+                    height: 2px;
+                    display: block;
+                    background-color: #000;
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    transition: all .3s;
+                }
+                &:hover{ 
+                    &:after{
+                        width: 100%;
+                    }
+                }
+            } 
+        }
+    }
+} 
+  .header .menu-btn:checked ~ .menu {
+    max-height: 240px;
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon {
+    background: transparent;
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon:before {
+    transform: rotate(-45deg);
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon:after {
+    transform: rotate(45deg);
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+    top: 0;
+  }
+  

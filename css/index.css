@@ -1,0 +1,395 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rozha+One&display=swap");
+body {
+  font-family: 'Open Sans', 'Roboto', 'Noto Sans TC', sans-serif;
+  color: #000000;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+a {
+  color: #000000;
+  text-decoration: none;
+  display: block;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.txt__xl {
+  font-size: 60px;
+}
+
+.txt__lg {
+  font-size: 50px;
+  line-height: 100px;
+}
+
+.txt__md {
+  font-size: 45px;
+  line-height: 80px;
+}
+
+.txt__sm {
+  font-size: 32px;
+}
+
+.txt__xs {
+  font-size: 24px;
+}
+
+.font__darkgrey {
+  color: #323232;
+}
+
+.font__grey {
+  color: #4b4b4b;
+}
+
+.font__lightgrey {
+  color: #646464;
+}
+
+.font__whitegrey {
+  color: #afafaf;
+}
+
+.font__silvergrey {
+  color: #c8c8c8;
+}
+
+.font__white {
+  color: #fff;
+}
+
+.font__whiteyellow {
+  color: #ffffc8;
+}
+
+.font__lightblue {
+  color: #00b2e3;
+}
+
+.font__blue {
+  color: #0099c3;
+}
+
+.font__royalblue {
+  color: #1226aa;
+}
+
+.font__barkblue {
+  color: #00143c;
+}
+
+.font__red {
+  color: #ff0000;
+}
+
+.font__shadow {
+  text-shadow: 0 1px 10px #000000;
+}
+
+.font__shadow__white {
+  text-shadow: 0 2px 20px #ffffff;
+}
+
+.font100 {
+  font-weight: 100;
+}
+
+.font300 {
+  font-weight: 300;
+}
+
+.font400 {
+  font-weight: 400;
+}
+
+.font500 {
+  font-weight: 500;
+}
+
+.font600 {
+  font-weight: 600;
+}
+
+.font700 {
+  font-weight: 700;
+}
+
+.font900 {
+  font-weight: 900;
+}
+
+.align__center {
+  text-align: center;
+}
+
+.align__left {
+  text-align: left;
+}
+
+.align__right {
+  text-align: right;
+}
+
+header {
+  width: 360px;
+  min-height: 100%;
+  background-color: #efefef;
+  position: fixed;
+  z-index: 3;
+  left: 0;
+  top: 0;
+}
+
+header .logo {
+  display: block;
+  text-align: center;
+  font-size: 2em;
+  padding: 10px 20px;
+  text-decoration: none;
+  margin-top: 50px;
+}
+
+header .menu-btn {
+  display: none;
+}
+
+header .menu-btn:hover {
+  background-color: #f4f4f4;
+}
+
+header .menu-icon {
+  cursor: pointer;
+  display: inline-block;
+  float: right;
+  padding: 28px 20px;
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+@media (min-width: 768px) {
+  header .menu-icon {
+    display: none;
+  }
+}
+
+header .menu-icon span.navicon {
+  background: #333;
+  display: block;
+  height: 2px;
+  position: relative;
+  -webkit-transition: background .2s ease-out;
+  transition: background .2s ease-out;
+  width: 18px;
+}
+
+header .menu-icon span.navicon:before, header .menu-icon span.navicon:after {
+  background: #333;
+  content: "";
+  display: block;
+  height: 100%;
+  position: absolute;
+  -webkit-transition: all .2s ease-out;
+  transition: all .2s ease-out;
+  width: 100%;
+}
+
+header .menu-icon span.navicon:before {
+  top: 5px;
+}
+
+header .menu-icon span.navicon:after {
+  top: -5px;
+}
+
+header ul.menu {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+  max-height: 0;
+  -webkit-transition: all .2s ease-out;
+  transition: all .2s ease-out;
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+@media (min-width: 768px) {
+  header ul.menu {
+    max-height: none;
+  }
+}
+
+header ul.menu li {
+  width: 100%;
+  height: inherit;
+  text-align: center;
+  padding: 10px 20px;
+}
+
+@media (min-width: 768px) {
+  header ul.menu li {
+    float: left;
+  }
+}
+
+header ul.menu li a {
+  display: inline-block;
+  padding: 10px 0;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  position: relative;
+}
+
+header ul.menu li a:after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  display: block;
+  background-color: #000;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+header ul.menu li a:hover:after {
+  width: 100%;
+}
+
+.header .menu-btn:checked ~ .menu {
+  max-height: 240px;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon {
+  background: transparent;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:before {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:after {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+  top: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+.wrapper {
+  width: calc(100% - 360px);
+  float: right;
+}
+
+.wrapper section {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 50px;
+}
+
+.wrapper section .titleBox {
+  text-transform: uppercase;
+  color: #f2f2f2;
+  font-family: 'Rozha One', serif;
+  text-align: center;
+  letter-spacing: 6px;
+  font-size: 120px;
+  margin-bottom: -80px;
+  position: relative;
+  z-index: -1;
+}
+
+.wrapper section .profileBox .imgBox {
+  width: 160px;
+  height: 160px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.wrapper section .profileBox .nameBox {
+  text-align: center;
+  margin: 20px auto;
+}
+
+.wrapper section .profileBox p {
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.wrapper section .skillBox {
+  margin-top: 50px;
+  font-size: 14px;
+}
+
+.wrapper section .skillBox p {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.wrapper section .skillBox .item .skilltype {
+  width: 100px;
+  float: left;
+}
+
+.wrapper section .skillBox .item ul {
+  width: calc(100% - 100px);
+  float: left;
+}
+
+.wrapper section .skillBox .item ul li {
+  display: inline-block;
+  margin-right: 8px;
+  margin-bottom: 6px;
+  color: #fff;
+  background-color: #a6a6a6;
+  padding: 3px 10px;
+  border-radius: 6px;
+}
+/*# sourceMappingURL=index.css.map */

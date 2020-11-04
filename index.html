@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<title>Website</title>
+	<meta name="author" content="" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="Resource-type" content="" />
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="css/slick.css" />
+	<link rel="stylesheet" type="text/css" href="css/slick-theme.css" />
+	<link rel="stylesheet" type="text/css" href="css/animate.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/index.css" />
+
+	<!-- <link rel="Shortcut Icon" type="image/x-icon" href="img/favicon-20200130120352740.ico" /> -->
+
+	<!--[if IE]>
+		<script type="text/javascript">
+			 var console = { log: function() {} };
+		</script>
+	<![endif]-->
+
+	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="js/wow.min.js"></script>
+	<script type="text/javascript" src="js/slick.js"></script>
+	<script type="text/javascript" src="js/imgLiquid-min.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+
+
+</head>
+
+<body>
+	<header class="header">
+		<a href="" class="logo">LOGO HERE</a>
+		<input class="menu-btn" type="checkbox" id="menu-btn" />
+		<label class="menu-icon" for="menu-btn">
+			<span class="navicon"></span>
+		</label>
+		<ul class="menu">
+			<li><a href="#about">About</a></li>
+			<li><a href="#design">Design</a></li>
+			<li><a href="#website">Website</a></li>
+			<li><a href="#contact">Contact</a></li>
+		</ul>
+	</header>
+	<div class="wrapper">
+		<section class="">
+			<!-- <h2>Hi, I'm Wendy</h2> -->
+		</section>
+		<section class="About">
+			<div class="titleBox">About</div>
+			<div class="profileBox">
+				<div class="imgBox imgLiquidFill">
+					<img src="img/profile.jpg" alt="">
+				</div>
+				<div class="nameBox txt__sm font700">Wendy Liu</div>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In obcaecati sed modi ea atque perspiciatis explicabo facilis aliquam quia ipsum cum necessitatibus blanditiis, vero suscipit itaque praesentium repudiandae nihil doloribus!</p>
+			</div>
+			<div class="skillBox">
+				<p class="font700">技能</p>
+				<div class="item clearfix">
+					<div class="skilltype">排版設計</div>
+					<ul>
+						<li>Photoshop</li>
+						<li>Illustrator</li>
+						<li>Indesign</li>
+					</ul>
+				</div>
+				<div class="item clearfix">
+					<div class="skilltype">網頁切版</div>
+					<ul>
+						<li>Html</li>
+						<li>Css / Css3</li>
+						<li>SASS / SCSS</li>
+						<li>Bootstrap</li>
+						<li>WordPress</li>
+						<li>RWD / AWD</li>
+					</ul>
+				</div>
+				<div class="item clearfix">
+					<div class="skilltype">程式</div>
+					<ul>
+						<li>jQuery</li>
+						<li>Git</li>
+					</ul>
+				</div>
+				<div class="item clearfix">
+					<div class="skilltype">UI工具</div>
+					<ul>
+						<li>XD</li>
+						<li>Figma</li>
+						<li>Zeplin</li>
+						<li>Sketch</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		<section class="Design">
+			<div class="titleBox">Design</div>
+			<ul>
+				<li></li>
+			</ul>
+		</section>
+	</div>
+
+	<footer>
+	</footer>
+
+	<script>
+		new WOW().init();
+		
+		$(".imgLiquidFill").imgLiquid();
+
+		$('.slider').slick({
+			infinite: true,
+			autoplay: true,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			// centerMode: true,
+			arrows: false,
+			dots: true
+		});
+
+		$(".gotoTop").on("click", function () {
+			$("html, body").animate({ scrollTop: 0 }, 500);
+		});
+
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap");
+@font-face {
+  font-family: HelveticaNeue;
+  src: url(../css/font/HelveticaNeue.ttf);
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #000000;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+a {
+  color: #130000;
+  text-decoration: none;
+}
+
+a.active {
+  color: #00b2e3;
+}
+
+img {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.container {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.txt__xl {
+  font-size: 60px;
+}
+
+.txt__lg {
+  font-size: 50px;
+  line-height: 100px;
+}
+
+.txt__md {
+  font-size: 45px;
+  line-height: 80px;
+}
+
+.txt__sm {
+  font-size: 32px;
+}
+
+.txt__xs {
+  font-size: 24px;
+}
+
+.font__darkgrey {
+  color: #323232;
+}
+
+.font__grey {
+  color: #4b4b4b;
+}
+
+.font__lightgrey {
+  color: #646464;
+}
+
+.font__whitegrey {
+  color: #afafaf;
+}
+
+.font__silvergrey {
+  color: #c8c8c8;
+}
+
+.font__white {
+  color: #fff;
+}
+
+.font__whiteyellow {
+  color: #ffffc8;
+}
+
+.font__lightblue {
+  color: #00b2e3;
+}
+
+.font__blue {
+  color: #0099c3;
+}
+
+.font__royalblue {
+  color: #1226aa;
+}
+
+.font__red {
+  color: #ff0000;
+}
+
+.font__shadow {
+  text-shadow: 0 1px 10px #000000;
+}
+
+.font100 {
+  font-weight: 100;
+}
+
+.font300 {
+  font-weight: 300;
+}
+
+.font400 {
+  font-weight: 400;
+}
+
+.font500 {
+  font-weight: 500;
+}
+
+.font700 {
+  font-weight: 700;
+}
+
+.font900 {
+  font-weight: 900;
+}
+
+.align__center {
+  text-align: center;
+}
+
+.align__left {
+  text-align: left;
+}
+
+.align__right {
+  text-align: right;
+}
+
+.icon__grey {
+  width: 190px;
+  height: 190px;
+  background: url(../img/btns/btn_index_pump_circle.png) center center no-repeat;
+  background-size: cover;
+}
+/*# sourceMappingURL=setting.css.map */

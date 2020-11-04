@@ -1,0 +1,74 @@
+@import 'setting';
+@import 'header';
+@import 'footer';
+
+html,body{
+    height: 100%;
+}
+.wrapper{
+    width: calc(100% - 360px);
+    float: right;
+    section{
+        width: 80%;
+        margin: 0 auto;
+        padding-top: 50px;
+        .titleBox{
+            text-transform:uppercase;
+            color: #f2f2f2;
+            font-family: 'Rozha One', serif;
+            text-align: center;
+            letter-spacing: 6px;
+            font-size: 120px;
+            margin-bottom: -80px;
+            position: relative;
+            z-index: -1;
+        }
+        .profileBox{
+            .imgBox{
+                width: 160px;
+                height: 160px;
+                margin: 0 auto;
+                border-radius: 50%;
+                overflow: hidden;
+            }
+            .nameBox{
+                text-align: center;
+                // letter-spacing: 1px;
+                margin: 20px auto;
+            }
+            p{
+                font-size: 16px;
+                line-height: 1.6;
+                text-align: justify;
+            }
+        }
+        .skillBox{
+            margin-top: 50px;
+            font-size: 14px;
+            p{
+                text-align: center;
+                font-size: 20px;
+                margin-bottom: 20px;
+            }
+            .item{
+                .skilltype{
+                    width: 100px;
+                    float: left;
+                }
+                ul{
+                    width: calc(100% - 100px);
+                    float: left;
+                    li{
+                        display: inline-block;
+                        margin-right: 8px;
+                        margin-bottom: 6px;
+                        color: #fff;
+                        background-color: #a6a6a6;
+                        padding: 3px 10px;
+                        border-radius: 6px;
+                    }
+                }
+            }
+        }
+    }
+}
