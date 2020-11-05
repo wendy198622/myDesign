@@ -36,17 +36,19 @@
 
 <body>
 	<header class="header">
-		<a href="" class="logo">LOGO HERE</a>
+		<!-- <a href="" class="logo">LOGO HERE</a> -->
 		<input class="menu-btn" type="checkbox" id="menu-btn" />
 		<label class="menu-icon" for="menu-btn">
 			<span class="navicon"></span>
 		</label>
-		<ul class="menu">
-			<li><a href="#about">About</a></li>
-			<li><a href="#design">Design</a></li>
-			<li><a href="#website">Website</a></li>
-			<li><a href="#contact">Contact</a></li>
-		</ul>
+		<nav>
+			<ul class="menu">
+				<li><a href="#about">About</a></li>
+				<li><a href="#website">Website</a></li>
+				<li><a href="#design">Design</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ul>
+		</nav>
 	</header>
 	<div class="wrapper">
 		<section class="About">
@@ -96,6 +98,79 @@
 					</ul>
 				</div>
 			</div>
+		</section>
+		<section class="Website">
+			<div class="titleBox">Website</div>
+			<ul class="sliderWall">
+				<li>
+					<h6 class="font700">企業網站</h6>
+					<div class="sliderBox sliderBox3">
+						<div class="slider_item">
+							<a href="#" class="gotoweb">
+								<img src="img/website_01.jpg" alt="">
+							</a>
+							<span>大睦建設</span>
+						</div>
+						<div class="slider_item">
+							<a href="#" class="gotoweb">
+								<img src="img/website_02.jpg" alt="">
+							</a>
+							<span>逸偉建設</span>
+						</div>
+						<div class="slider_item">
+							<a href="#" class="gotoweb">
+								<img src="img/website_03.jpg" alt="">
+							</a>
+							<span>Airplus</span>
+						</div>
+					</div>
+				</li>
+				<li>
+					<h6 class="font700">一頁式網站</h6>
+					<div class="sliderBox sliderBox4">
+						<div class="slider_item">
+							<a href="#" class="gotoweb">
+								<img src="img/onepage_01.jpg" alt="">
+							</a>
+						</div>
+						<div class="slider_item">
+							<a href="#" class="gotoweb">
+								<img src="img/onepage_02.jpg" alt="">
+							</a>
+						</div>
+						<div class="slider_item">
+							<a href="#" class="gotoweb">
+								<img src="img/onepage_03.jpg" alt="">
+							</a>
+						</div>
+						<div class="slider_item">
+							<a href="#" class="gotoweb">
+								<img src="img/onepage_04.jpg" alt="">
+							</a>
+						</div>
+						<div class="slider_item">
+							<a href="#" class="gotoweb">
+								<img src="img/onepage_05.jpg" alt="">
+							</a>
+						</div>
+						<div class="slider_item">
+							<a href="#" class="gotoweb">
+								<img src="img/onepage_06.jpg" alt="">
+							</a>
+						</div>
+						<div class="slider_item">
+							<a href="#" class="gotoweb">
+								<img src="img/onepage_07.jpg" alt="">
+							</a>
+						</div>
+						<div class="slider_item">
+							<a href="#" class="gotoweb">
+								<img src="img/onepage_08.jpg" alt="">
+							</a>
+						</div>
+					</div>
+				</li>
+			</ul>
 		</section>
 		<section class="Design">
 			<div class="titleBox">Design</div>
@@ -364,76 +439,6 @@
 				</li>
 			</ul>
 		</section>
-		<section class="Design">
-			<div class="titleBox">Website</div>
-			<ul class="sliderWall">
-				<li>
-					<h6 class="font700">企業網站</h6>
-					<div class="sliderBox sliderBox3">
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/website_01.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/website_02.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/website_03.jpg" alt="">
-							</a>
-						</div>
-					</div>
-				</li>
-				<li>
-					<h6 class="font700">一頁式網站</h6>
-					<div class="sliderBox sliderBox4">
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/onepage_01.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/onepage_02.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/onepage_03.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/onepage_04.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/onepage_05.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/onepage_06.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/onepage_07.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/onepage_08.jpg" alt="">
-							</a>
-						</div>
-					</div>
-				</li>
-			</ul>
-		</section>
 	</div>
 
 	<footer>
@@ -463,6 +468,12 @@
 
 		$(".gotoTop").on("click", function () {
 			$("html, body").animate({ scrollTop: 0 }, 500);
+		});
+
+		$(".menu li").on("click", function () {
+			var block = $(this).data("block");
+			var pos = $("#" + block).offset().top;
+			$("html, body").animate({ scrollTop: pos }, 500);
 		});
 
 	</script>

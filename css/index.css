@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
@@ -201,13 +202,19 @@ img {
 }
 
 header {
-  width: 360px;
+  width: 320px;
+  height: 100%;
   min-height: 100%;
-  background-color: #efefef;
   position: fixed;
   z-index: 3;
   left: 0;
   top: 0;
+}
+
+@media (max-width: 768px) {
+  header {
+    width: 100%;
+  }
 }
 
 header .logo {
@@ -230,9 +237,10 @@ header .menu-btn:hover {
 header .menu-icon {
   cursor: pointer;
   display: inline-block;
-  float: right;
+  float: left;
   padding: 28px 20px;
   position: relative;
+  z-index: 10;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -274,13 +282,27 @@ header .menu-icon span.navicon:after {
   top: -5px;
 }
 
-header ul.menu {
+header nav {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  background-color: #efefef;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+@media (max-width: 768px) {
+  header nav {
+    width: 0;
+  }
+}
+
+header nav ul.menu {
   width: 100%;
   margin: 0;
   padding: 0;
   list-style: none;
   overflow: hidden;
-  max-height: 0;
   -webkit-transition: all .2s ease-out;
   transition: all .2s ease-out;
   -webkit-transform-origin: 50% 50%;
@@ -291,13 +313,13 @@ header ul.menu {
           transform: translateY(-50%);
 }
 
-@media (min-width: 768px) {
-  header ul.menu {
-    max-height: none;
+@media (max-width: 768px) {
+  header nav ul.menu {
+    width: 0;
   }
 }
 
-header ul.menu li {
+header nav ul.menu li {
   width: 100%;
   height: inherit;
   text-align: center;
@@ -305,12 +327,12 @@ header ul.menu li {
 }
 
 @media (min-width: 768px) {
-  header ul.menu li {
+  header nav ul.menu li {
     float: left;
   }
 }
 
-header ul.menu li a {
+header nav ul.menu li a {
   display: inline-block;
   padding: 10px 0;
   text-decoration: none;
@@ -320,7 +342,7 @@ header ul.menu li a {
   position: relative;
 }
 
-header ul.menu li a:after {
+header nav ul.menu li a:after {
   content: "";
   width: 0%;
   height: 2px;
@@ -335,12 +357,16 @@ header ul.menu li a:after {
   transition: all .3s;
 }
 
-header ul.menu li a:hover:after {
+header nav ul.menu li a:hover:after {
   width: 100%;
 }
 
-.header .menu-btn:checked ~ .menu {
-  max-height: 240px;
+.header .menu-btn:checked ~ nav {
+  width: 100%;
+}
+
+.header .menu-btn:checked ~ nav .menu {
+  width: 100%;
 }
 
 .header .menu-btn:checked ~ .menu-icon .navicon {
@@ -367,8 +393,14 @@ html, body {
 }
 
 .wrapper {
-  width: calc(100% - 360px);
+  width: calc(100% - 320px);
   float: right;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    width: 100%;
+  }
 }
 
 .wrapper section {
@@ -449,5 +481,63 @@ html, body {
 
 .wrapper section .sliderWall li .sliderBox .slider_item {
   padding: 0 10px;
+}
+
+.wrapper section .sliderWall li .sliderBox .slider_item a {
+  border: 1px solid #efefef;
+  position: relative;
+}
+
+.wrapper section .sliderWall li .sliderBox .slider_item a::before {
+  content: "";
+  width: 100%;
+  height: 0;
+  display: block;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  background-color: rgba(0, 0, 0, 0.7);
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.wrapper section .sliderWall li .sliderBox .slider_item a::after {
+  content: "看圖片";
+  width: 80px;
+  padding: 5px;
+  display: block;
+  font-size: 14px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  border: 1px solid #fff;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.wrapper section .sliderWall li .sliderBox .slider_item a:hover::before {
+  height: 100%;
+}
+
+.wrapper section .sliderWall li .sliderBox .slider_item a:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.wrapper section .sliderWall li .sliderBox .slider_item a.gotoweb::after {
+  content: "看網站";
+}
+
+.wrapper section .sliderWall li .sliderBox .slider_item span {
+  text-align: center;
+  display: block;
+  margin: 10px auto;
+  color: #999;
 }
 /*# sourceMappingURL=index.css.map */
