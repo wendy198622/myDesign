@@ -154,6 +154,52 @@ img {
   text-align: right;
 }
 
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://example.com/MaterialIcons-Regular.eot);
+  /* For IE6-8 */
+  src: local("Material Icons"), local("MaterialIcons-Regular"), url(https://example.com/MaterialIcons-Regular.woff2) format("woff2"), url(https://example.com/MaterialIcons-Regular.woff) format("woff"), url(https://example.com/MaterialIcons-Regular.ttf) format("truetype");
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  -webkit-font-feature-settings: 'liga';
+          font-feature-settings: 'liga';
+}
+
+.slick-prev:before, .slick-next:before {
+  color: #000;
+  font-family: 'Material Icons';
+}
+
+.slick-next:before {
+  content: '\e5cc';
+}
+
+.slick-prev:before {
+  content: '\e5cb';
+}
+
 header {
   width: 360px;
   min-height: 100%;
@@ -395,6 +441,10 @@ html, body {
 
 .wrapper section .sliderWall li:first-child h6 {
   margin-top: 0;
+}
+
+.wrapper section .sliderWall li .sliderBox {
+  width: 810px;
 }
 
 .wrapper section .sliderWall li .sliderBox .slider_item {
