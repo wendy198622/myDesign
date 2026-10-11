@@ -1,483 +1,671 @@
 <!DOCTYPE html>
-
+<html lang="zh-TW">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-	<title>Website</title>
-	<meta name="author" content="" />
-	<meta name="description" content="" />
-	<meta name="keywords" content="" />
-	<meta name="Resource-type" content="" />
-	<!-- css -->
-	<link rel="stylesheet" type="text/css" href="css/reset.css" />
-	<link rel="stylesheet" type="text/css" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
-	<link rel="stylesheet" type="text/css" href="css/slick.css" />
-	<link rel="stylesheet" type="text/css" href="css/slick-theme.css" />
-	<link rel="stylesheet" type="text/css" href="css/animate.min.css" />
-	<link rel="stylesheet" type="text/css" href="css/index.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>劉雅文 Wendy Liu | 資深網頁設計師 作品集</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0070d2;
+      --primary-hover: #0056b3;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --border-color: #e2e8f0;
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-md: 0 10px 25px -5px rgba(0,0,0,0.06);
+      --shadow-hover: 0 20px 30px -10px rgba(0,112,210,0.15);
+    }
 
-	<!-- <link rel="Shortcut Icon" type="image/x-icon" href="img/favicon-20200130120352740.ico" /> -->
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
+      background: var(--bg-base);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
-	<!--[if IE]>
-		<script type="text/javascript">
-			 var console = { log: function() {} };
-		</script>
-	<![endif]-->
+    header {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; height: 72px; }
+    .logo { font-size: 19px; font-weight: 800; color: var(--text-main); text-decoration: none; }
+    .logo span { color: var(--primary); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 500; font-size: 15px; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--primary); }
 
-	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
-	<script type="text/javascript" src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-	<script type="text/javascript" src="js/wow.min.js"></script>
-	<script type="text/javascript" src="js/slick.js"></script>
-	<script type="text/javascript" src="js/imgLiquid-min.js"></script>
-	<script type="text/javascript" src="js/index.js"></script>
+    .hero { padding: 90px 0 50px; text-align: center; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #eff6ff; color: var(--primary); padding: 6px 18px;
+      border-radius: 999px; font-size: 13px; font-weight: 700; margin-bottom: 20px;
+      border: 1px solid #bfdbfe;
+    }
+    .hero h1 {
+      font-size: 42px; font-weight: 800; letter-spacing: -1px;
+      line-height: 1.3; margin-bottom: 20px; max-width: 920px; margin-inline: auto;
+    }
+    .hero p { font-size: 17px; color: var(--text-muted); max-width: 760px; margin: 0 auto 36px; }
 
+    .stats-banner {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px 20px;
+      margin-bottom: 60px;
+      box-shadow: var(--shadow-sm);
+    }
+    .stat-item { text-align: center; border-right: 1px solid var(--border-color); }
+    .stat-item:last-child { border-right: none; }
+    .stat-num { font-size: 28px; font-weight: 800; color: var(--primary); }
+    .stat-desc { font-size: 13px; color: var(--text-muted); font-weight: 600; margin-top: 4px; }
 
+    .section { padding: 75px 0; }
+    .section-header { margin-bottom: 40px; text-align: center; }
+    .section-title { font-size: 30px; font-weight: 800; margin-bottom: 10px; }
+    .section-subtitle { font-size: 15px; color: var(--text-muted); }
+
+    .matrix-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    .matrix-card {
+      background: var(--bg-surface);
+      border-radius: var(--radius-md);
+      padding: 30px 24px;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s;
+    }
+    .matrix-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: #cbd5e1; }
+    .icon-box {
+      width: 48px; height: 48px; background: #eff6ff; color: var(--primary);
+      border-radius: var(--radius-sm); display: flex; align-items: center;
+      justify-content: center; font-size: 20px; margin-bottom: 20px;
+    }
+    .matrix-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .matrix-card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+    .case-card {
+      background: var(--bg-surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+      margin-bottom: 40px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      box-shadow: var(--shadow-md);
+    }
+    .case-visual {
+      background: #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      position: relative;
+      cursor: pointer;
+    }
+    .case-visual img {
+      width: 100%;
+      height: 380px;
+      object-fit: contain;
+      background: #fff;
+      border-radius: var(--radius-sm);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+      transition: transform 0.3s;
+    }
+    .case-visual:hover img { transform: scale(1.02); }
+    .case-content {
+      padding: 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .case-kicker {
+      font-size: 12px; font-weight: 700; color: var(--primary);
+      text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.5px;
+    }
+    .case-title { font-size: 23px; font-weight: 800; margin-bottom: 14px; line-height: 1.35; }
+    .case-summary { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 18px; }
+    .case-metrics {
+      display: flex; gap: 24px; margin-bottom: 20px; padding: 14px 0;
+      border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);
+    }
+    .metric-value { font-size: 20px; font-weight: 800; color: var(--primary); }
+    .metric-label { font-size: 12px; color: var(--text-muted); }
+    .pill-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .pill-item { font-size: 12px; background: var(--bg-base); padding: 4px 10px; border-radius: 6px; font-weight: 600; }
+
+    .filter-wrapper { display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; flex-wrap: wrap; }
+    .filter-btn {
+      background: var(--bg-surface); border: 1px solid var(--border-color);
+      color: var(--text-muted); padding: 9px 20px; border-radius: 999px;
+      font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.25s ease;
+    }
+    .filter-btn:hover { border-color: var(--primary); color: var(--primary); }
+    .filter-btn.active {
+      background: var(--primary); color: #fff; border-color: var(--primary);
+      box-shadow: 0 4px 12px rgba(0,112,210,0.25);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .work-card {
+      background: var(--bg-surface); border-radius: var(--radius-md);
+      border: 1px solid var(--border-color); overflow: hidden;
+      box-shadow: var(--shadow-sm); transition: transform 0.25s, box-shadow 0.25s;
+      display: flex; flex-direction: column;
+    }
+    .work-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+    .work-card.hide { display: none; }
+    .card-thumb { height: 210px; background: #e2e8f0; overflow: hidden; position: relative; }
+    .card-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+    .card-tag {
+      position: absolute; top: 12px; left: 12px;
+      background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(4px);
+      color: #fff; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 999px;
+    }
+    .card-body { padding: 18px; display: flex; flex-direction: column; flex-grow: 1; }
+    .card-title { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+    .card-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; flex-grow: 1; }
+
+    .modal-overlay {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px);
+      z-index: 1000; display: none; align-items: center; justify-content: center; padding: 24px;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-content {
+      background: #fff; border-radius: var(--radius-md); max-width: 960px; max-height: 90vh;
+      width: 100%; overflow-y: auto; padding: 32px; position: relative;
+    }
+    .modal-close {
+      position: absolute; top: 20px; right: 20px; font-size: 24px;
+      background: #f1f5f9; border: none; width: 40px; height: 40px;
+      border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;
+    }
+    .modal-img-wrap img { width: 100%; height: auto; border-radius: var(--radius-sm); margin-top: 16px; }
+
+    footer { border-top: 1px solid var(--border-color); padding: 60px 0; text-align: center; background: #fff; }
+    .contact-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--primary); color: #fff; padding: 12px 28px;
+      border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 15px; margin-top: 16px;
+    }
+    /* 切版專區專屬按鈕樣式 */
+    .btn-live-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: #eff6ff;
+      color: var(--primary);
+      border: 1px solid #bfdbfe;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-live-link:hover {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+    @media (max-width: 860px) {
+      .hero h1 { font-size: 30px; }
+      .stats-banner { grid-template-columns: 1fr 1fr; }
+      .stat-item { border-right: none; }
+      .case-card { grid-template-columns: 1fr; }
+      .case-visual img { height: 260px; }
+      .case-content { padding: 28px; }
+    }
+  </style>
 </head>
-
 <body>
-	<header class="header">
-		<!-- <a href="" class="logo">LOGO HERE</a> -->
-		<input class="menu-btn" type="checkbox" id="menu-btn" />
-		<label class="menu-icon" for="menu-btn">
-			<span class="navicon"></span>
-		</label>
-		<nav>
-			<ul class="menu">
-				<li><a href="#about">About</a></li>
-				<li><a href="#website">Website</a></li>
-				<li><a href="#design">Design</a></li>
-				<li><a href="#contact">Contact</a></li>
-			</ul>
-		</nav>
-	</header>
-	<div class="wrapper">
-		<section class="About">
-			<div class="titleBox">About</div>
-			<div class="profileBox">
-				<div class="imgBox imgLiquidFill">
-					<img src="img/profile.jpg" alt="">
-				</div>
-				<div class="nameBox txt__sm font700">Wendy Liu</div>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In obcaecati sed modi ea atque perspiciatis explicabo facilis aliquam quia ipsum cum necessitatibus blanditiis, vero suscipit itaque praesentium repudiandae nihil doloribus!</p>
-			</div>
-			<div class="skillBox">
-				<h6 class="font700">技能</h6>
-				<div class="item clearfix">
-					<div class="skilltype">排版設計</div>
-					<ul>
-						<li>Photoshop</li>
-						<li>Illustrator</li>
-						<li>Indesign</li>
-					</ul>
-				</div>
-				<div class="item clearfix">
-					<div class="skilltype">網頁切版</div>
-					<ul>
-						<li>Html</li>
-						<li>Css / Css3</li>
-						<li>SASS / SCSS</li>
-						<li>Bootstrap</li>
-						<li>WordPress</li>
-						<li>RWD / AWD</li>
-					</ul>
-				</div>
-				<div class="item clearfix">
-					<div class="skilltype">程式</div>
-					<ul>
-						<li>jQuery</li>
-						<li>Git</li>
-					</ul>
-				</div>
-				<div class="item clearfix">
-					<div class="skilltype">UI工具</div>
-					<ul>
-						<li>XD</li>
-						<li>Figma</li>
-						<li>Zeplin</li>
-						<li>Sketch</li>
-					</ul>
-				</div>
-			</div>
-		</section>
-		<section class="Website">
-			<div class="titleBox">Website</div>
-			<ul class="sliderWall">
-				<li>
-					<h6 class="font700">企業網站</h6>
-					<div class="sliderBox sliderBox3">
-						<div class="slider_item">
-							<a href="#" class="gotoweb">
-								<img src="img/website_01.jpg" alt="">
-							</a>
-							<span>大睦建設</span>
-						</div>
-						<div class="slider_item">
-							<a href="#" class="gotoweb">
-								<img src="img/website_02.jpg" alt="">
-							</a>
-							<span>逸偉建設</span>
-						</div>
-						<div class="slider_item">
-							<a href="#" class="gotoweb">
-								<img src="img/website_03.jpg" alt="">
-							</a>
-							<span>Airplus</span>
-						</div>
-					</div>
-				</li>
-				<li>
-					<h6 class="font700">一頁式網站</h6>
-					<div class="sliderBox sliderBox4">
-						<div class="slider_item">
-							<a href="#" class="gotoweb">
-								<img src="img/onepage_01.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#" class="gotoweb">
-								<img src="img/onepage_02.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#" class="gotoweb">
-								<img src="img/onepage_03.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#" class="gotoweb">
-								<img src="img/onepage_04.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#" class="gotoweb">
-								<img src="img/onepage_05.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#" class="gotoweb">
-								<img src="img/onepage_06.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#" class="gotoweb">
-								<img src="img/onepage_07.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#" class="gotoweb">
-								<img src="img/onepage_08.jpg" alt="">
-							</a>
-						</div>
-					</div>
-				</li>
-			</ul>
-		</section>
-		<section class="Design">
-			<div class="titleBox">Design</div>
-			<ul class="sliderWall">
-				<li>
-					<h6 class="font700">旅遊類</h6>
-					<div class="sliderBox sliderBox3">
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/travel_01.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/travel_02.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/travel_03.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/travel_04.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="">
-								<img src="img/travel_05.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="">
-								<img src="img/travel_06.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="">
-								<img src="img/travel_07.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="">
-								<img src="img/travel_08.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="">
-								<img src="img/travel_09.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="">
-								<img src="img/travel_10.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="">
-								<img src="img/travel_11.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="">
-								<img src="img/travel_12.jpg" alt="">
-							</a>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="sliderBox sliderBox3">
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/travel_25.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/travel_13.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/travel_14.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/travel_15.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/travel_16.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/travel_17.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/travel_18.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/travel_19.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/travel_20.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/travel_21.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/travel_22.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/travel_23.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/travel_24.jpg" alt="">
-							</a>
-						</div>
-					</div>
-				</li>
-				<li>
-					<h6 class="font700">流行類</h6>
-					<div class="sliderBox sliderBox3">
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/fashion_01.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/fashion_02.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/fashion_03.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/fashion_04.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/fashion_05.jpg" alt="">
-							</a>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="sliderBox sliderBox3">
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/fashion_06.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/fashion_07.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/fashion_08.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/fashion_09.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/fashion_10.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/fashion_11.jpg" alt="">
-							</a>
-						</div>
-					</div>
-				</li>
-				<li>
-					<h6 class="font700">生活類</h6>
-					<div class="sliderBox sliderBox3">
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/life_01.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/life_02.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/life_03.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/life_04.jpg" alt="">
-							</a>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="sliderBox sliderBox3">
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/life_05.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/life_06.jpg" alt="">
-							</a>
-						</div>
-					</div>
-				</li>
-				<li>
-					<h6 class="font700">行銷類</h6>
-					<div class="sliderBox sliderBox3">
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/mkt_01.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/mkt_02.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/mkt_03.jpg" alt="">
-							</a>
-						</div>
-						<div class="slider_item">
-							<a href="#">
-								<img src="img/mkt_04.jpg" alt="">
-							</a>
-						</div>
-					</div>
-				</li>
-			</ul>
-		</section>
-	</div>
 
-	<footer>
-	</footer>
+  <!-- Navigation -->
+  <header>
+    <div class="container nav-inner">
+      <a href="#" class="logo">WENDY LIU<span> · WEB DESIGN</span></a>
+      <ul class="nav-links">
+        <li><a href="#competencies">核心能力</a></li>
+        <li><a href="#featured">精選專案</a></li>
+        <li><a href="#live-demos">切版實作 (Demo)</a></li> <!-- 新增這行 -->
+        <li><a href="#archives">作品一覽</a></li>
+        <li><a href="#contact">聯絡方式</a></li>
+      </ul>
+    </div>
+  </header>
 
-	<script>
-		new WOW().init();
-		
-		$(".imgLiquidFill").imgLiquid();
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="badge">
+        <i class="fa-solid fa-layer-group"></i> 16 年數位設計實戰 · 大型電商 ➔ 3C 零售 ➔ B2B SaaS
+      </div>
+      <h1>重視品牌視覺一致性<br>且具備前端切版與數據思維的資深網頁設計師</h1>
+      <p>過去在東森購物與神腦國際累積了扎實的電商視覺經驗，近年則深耕 B2B 品牌官網建置與營運。我擅長利用 Figma 建立規範與元件庫，熟悉 CSS / RWD 切版與 WordPress 架站，並能透過 GA4 數據檢視使用者動線，讓網頁既好看、好用，也能為業務帶來實質成果。</p>
 
-		$('.sliderBox3').slick({
-			infinite: true,
-			autoplay: true,
-			slidesToShow: 3,
-			slidesToScroll: 1,
-			arrows: true,
-			dots: true
-		});
-		$('.sliderBox4').slick({
-			infinite: true,
-			autoplay: true,
-			slidesToShow: 4,
-			slidesToScroll: 1,
-			arrows: true,
-			dots: true
-		});
+      <!-- 統計數據條 -->
+      <div class="stats-banner">
+        <div class="stat-item">
+          <div class="stat-num">16+ 年</div>
+          <div class="stat-desc">數位設計與網站專案實務</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">3C & 電商</div>
+          <div class="stat-desc">神腦與東森高節奏檔期經驗</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">0 到 1</div>
+          <div class="stat-desc">品牌官網企劃、切版到上線</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">UX & 數據</div>
+          <div class="stat-desc">GA4 動線分析與轉換率優化</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-		$(".gotoTop").on("click", function () {
-			$("html, body").animate({ scrollTop: 0 }, 500);
-		});
+  <!-- 核心專長 (對標 Innergie 工作需求) -->
+  <section class="section" id="competencies" style="background:#fff; border-top:1px solid var(--border-color); border-bottom:1px solid var(--border-color);">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">我能為團隊帶來的價值</h2>
+        <p class="section-subtitle">不僅是完成視覺產出，更涵蓋規格轉譯、切版實作與跨部門溝通</p>
+      </div>
 
-		$(".menu li").on("click", function () {
-			var block = $(this).data("block");
-			var pos = $("#" + block).offset().top;
-			$("html, body").animate({ scrollTop: pos }, 500);
-		});
+      <div class="matrix-grid">
+        <div class="matrix-card">
+          <div class="icon-box"><i class="fa-solid fa-swatchbook"></i></div>
+          <h3>官網設計與設計系統維護</h3>
+          <p>熟悉 Figma Auto Layout、Component 與 Variants 操作。能依循品牌規範（Brand Guideline）建立清楚的排版、字級與配色標準，維護跨裝置的一致質感。</p>
+        </div>
+        <div class="matrix-card">
+          <div class="icon-box"><i class="fa-solid fa-code"></i></div>
+          <h3>前端切版理解與 CMS 維護</h3>
+          <p>熟悉 HTML/CSS 與 RWD 響應式切版，曾於團隊內部負責網頁設計課程教學。具備多看 WordPress 與 Elementor 實務操作經驗，能獨立完成頁面建置與跨瀏覽器調整。</p>
+        </div>
+        <div class="matrix-card">
+          <div class="icon-box"><i class="fa-solid fa-bullhorn"></i></div>
+          <h3>新品上市與全通路視覺延伸</h3>
+          <p>具備消費性電子產品概念，能將硬體規格轉化為直覺易懂的圖表與版面。可延伸設計官網產品頁、電商賣場、社群與 EDM，維持整體風格統一。</p>
+        </div>
+        <div class="matrix-card">
+          <div class="icon-box"><i class="fa-solid fa-chart-line"></i></div>
+          <h3>以數據為依據的動線優化</h3>
+          <p>能運用 GA4、GTM、BigQuery 與 Search Console 觀察使用者在各頁面的瀏覽軌跡與點擊熱點，針對重要按鈕（CTA）與表單動線提出具體改善方案，提升轉換成效。</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-	</script>
+  <!-- 精選商業案例 (直接換上您的 B2B 核心大作) -->
+  <section class="section" id="featured">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">精選專案案例</h2>
+        <p class="section-subtitle">展示「品牌視覺規範 ➔ 設計系統建構 ➔ 官網演進與行銷導流」的綜合執行力</p>
+      </div>
+
+      <!-- Case 1: Design System & Brand Guideline -->
+      <div class="case-card">
+        <div class="case-visual" onclick="openModal('Figma Design System 設計系統與品牌規範', '規劃品牌完整視覺識別系統（Brand GuideBook）與 Figma 數位元件庫，制定 Typography、Color、Buttons、Textfields 與 Notification 狀態規範，確保跨裝置與多頁面的一致品質與團隊協作效率。', 'img/Design system.png')">
+          <img src="img/Design system.png" alt="Figma Design System" onerror="this.src='img/Design system.png'">
+        </div>
+        <div class="case-content">
+          <!-- <div class="case-kicker">Design System · Brand Guideline · Figma Component</div> -->
+          <h3 class="case-title">品牌視覺識別與 Figma 設計系統建立</h3>
+          <p class="case-summary">
+            <!-- <strong>專案背景：</strong> 隨著產品服務與行銷活動持續擴充，各觸點的視覺語言容易發散，前端開發與設計交付時常缺乏標準依據。<br> -->
+            統籌制定品牌識別規範（Brand Guideline），並運用 Figma Auto Layout、Component 與 Variants 搭建完整的 Design System。涵蓋色彩系統、排版階層、按鈕多態、表單輸入框等元件，讓後續頁面擴充時能維持高一致性並大幅縮短交付時程。
+          </p>
+          <!-- <div class="case-metrics">
+            <div>
+              <div class="metric-value">100%</div>
+              <div class="metric-label">模組化元件規格落地</div>
+            </div>
+            <div>
+              <div class="metric-value">-40%</div>
+              <div class="metric-label">跨頁面設計與開發協作時間</div>
+            </div>
+          </div> -->
+          <div class="pill-row">
+            <span class="pill-item">Design System</span>
+            <span class="pill-item">Brand Guideline</span>
+            <span class="pill-item">Figma Variants</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 2: 品牌官網改版與動線演進 -->
+      <div class="case-card">
+        <div class="case-visual" onclick="openModal('B2B 品牌官網 0 到 1 建置與維護', '主導品牌官網 2020 至 2026 年的營運與改版，持續梳理產品核心架構與 B2B 解決方案頁面，在維持品牌一致質感的同時，讓網站成為業務獲取客戶的有效管道。', 'img/Web Design_2026.png')">
+          <img src="img/Web Design_2026.png" alt="B2B 官網改版歷程" onerror="this.src='img/Web Design_2026.png'">
+        </div>
+        <div class="case-content">
+          <!-- <div class="case-kicker">Website Redesign · IA & User Flow · Conversion Flow</div> -->
+          <h3 class="case-title">品牌官網從 0 到 1 建置與維護</h3>
+          <p class="case-summary">
+            <strong>專案背景：</strong> 品牌在不同發展階段需要對標不同的受眾認知；舊版著重於功能教育，隨著服務升級，需要轉化為成熟、具備國際商務信任感的視覺調性，並強化留名諮詢漏斗。<br>
+            <strong>我的做法：</strong> 完整參與品牌 2020 年至 2026 年的網站改版，自力完成從網站企劃到視覺設計到後端 Wordpress 上架，並結合 GA4 與 GTM、Big Query 等數據分析訪客動線與表單欄位，讓網站成為業務獲客的核心渠道。
+          </p>
+          <!-- <div class="case-metrics">
+            <div>
+              <div class="metric-value">0 ➔ 1</div>
+              <div class="metric-label">自力完成規劃至切版上線</div>
+            </div>
+            <div>
+              <div class="metric-value">+42%</div>
+              <div class="metric-label">商務諮詢表單填寫率提升</div>
+            </div>
+          </div> -->
+          <div class="pill-row">
+            <span class="pill-item">官網改版</span>
+            <span class="pill-item">資訊架構 (IA)</span>
+            <span class="pill-item">WordPress / 切版</span>
+            <span class="pill-item">GA4 轉換追蹤</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 3: 內容行銷與全通路素材延伸 -->
+      <div class="case-card">
+        <div class="case-visual" onclick="openModal('B2B 內容行銷與多渠道數位素材延伸', '規劃白皮書報告、主題 EDM 與數位宣傳視覺。將複雜的法規、財務與 ESG 議題轉化為直覺圖表與視覺資訊，維持品牌調性高度一致。', 'img/edm.png')">
+          <img src="img/edm.png" alt="內容行銷與 EDM 視覺" onerror="this.src='img/edm.png'">
+        </div>
+        <div class="case-content">
+          <div class="case-kicker">Digital Campaigns · EDM · Information Graphics</div>
+          <h3 class="case-title">行銷活動專案與多渠道數位素材延伸</h3>
+          <p class="case-summary">
+            <strong>專案背景：</strong> 針對不同受眾痛點與法規議題，需要系統化產出專業度高且版面清晰的系列宣傳素材，引導名單下載與產品試用。<br>
+            <strong>我的做法：</strong> 依據核心賣點將專業報告與指南進行資訊圖表化（Infographic）編排；統一視覺風格並延伸至主題 EDM、電子報、社群圖文與廣告素材，確保品牌溝通的一致性與點擊吸引力。
+          </p>
+          <!-- <div class="case-metrics">
+            <div>
+              <div class="metric-value">全通路</div>
+              <div class="metric-label">EDM / 報告 / 社群視覺統一</div>
+            </div>
+            <div>
+              <div class="metric-value">高點擊</div>
+              <div class="metric-label">資訊圖表化顯著降低閱讀負擔</div>
+            </div>
+          </div> -->
+          <div class="pill-row">
+            <span class="pill-item">主題 EDM</span>
+            <span class="pill-item">資訊視覺化</span>
+            <span class="pill-item">Campaign 素材</span>
+            <span class="pill-item">跨通路延伸</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 更多專案作品 (精簡為兩大核心類別) -->
+  <section class="section" id="archives" style="background:#fff; border-top:1px solid var(--border-color);">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">更多專案作品</h2>
+        <p class="section-subtitle">涵蓋 B2B 企業商務官網與多年累積的多品類電商行銷視覺，點擊卡片可放大檢視細節</p>
+      </div>
+
+      <!-- 分類按鈕：僅保留全部、企業商務官網、電商購物作品 -->
+      <div class="filter-wrapper">
+        <button class="filter-btn active" data-filter="all">全部 (All)</button>
+        <button class="filter-btn" data-filter="b2b"><i class="fa-solid fa-building"></i> 企業與商務官網</button>
+        <button class="filter-btn" data-filter="ecommerce"><i class="fa-solid fa-cart-shopping"></i> 電商購物作品</button>
+      </div>
+
+      <!-- 作品網格 -->
+      <div class="gallery-grid">
+
+        <!-- 1. 企業與商務官網系列 -->
+        <div class="work-card" data-cat="b2b" onclick="openModal('Brand GuideBook 品牌識別規範手冊', '制定品牌標誌規範、標準字體、色彩配比、應用原則與禁用樣式，維持跨渠道與跨產品線之統一調性。', 'img/Brand GuideBook.png')">
+          <div class="card-thumb">
+            <span class="card-tag">品牌規範</span>
+            <img src="img/Brand GuideBook.png" alt="Brand GuideBook">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">品牌視覺識別規範 (Brand Guideline)</h3>
+            <p class="card-desc">建立完整的企業品牌手冊，確保線上與線下所有視覺輸出之一致性。</p>
+          </div>
+        </div>
+
+        <div class="work-card" data-cat="b2b" onclick="openModal('Figma Design System 設計元件庫', '使用 Figma 建立模組化 Components、Variants 與 Auto Layout 規則，提供團隊清晰的設計資產庫。', 'img/Design system.png')">
+          <div class="card-thumb">
+            <span class="card-tag">設計系統</span>
+            <img src="img/Design system.png" alt="Design System">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Figma 數位設計系統 (Design System)</h3>
+            <p class="card-desc">模組化色彩、Typography、按鈕、輸入框與提示元件，大幅提高維護效率。</p>
+          </div>
+        </div>
+
+        <div class="work-card" data-cat="b2b" onclick="openModal('2024 品牌官網全站改版設計', '洗鍊沉穩的現代科技商務風格，梳理多產品線與解決方案架構，建立專業國際信賴感。', 'img/Web Design_2026.png')">
+          <div class="card-thumb">
+            <span class="card-tag">品牌網站</span>
+            <img src="img/Web Design_2026.png" alt="2024 官網改版">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">B2B 品牌網站運營(Wordpress)</h3>
+            <p class="card-desc">針對企業決策者優化版面與視覺動線，強化產品可信度與諮詢意願。</p>
+          </div>
+        </div>
+
+        <!-- <div class="work-card" data-cat="b2b" onclick="openModal('2021 品牌官網首頁與活動頁規劃', '以親切生動的插畫風格傳達產品服務概念，降低複雜財務系統的理解門檻。', 'img/Web Design_2021.png')">
+          <div class="card-thumb">
+            <span class="card-tag">官網首頁</span>
+            <img src="img/Web Design_2021.png" alt="2021 官網首頁">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">2021 品牌官網風格規劃</h3>
+            <p class="card-desc">透過生活感圖解與流程圖呈現核心功能，提升新客訪客的停留時間。</p>
+          </div>
+        </div> -->
+
+        <div class="work-card" data-cat="b2b" onclick="openModal('B2B 內容行銷與主題 EDM 視覺', '針對財務查帳、企業報銷與 ESG 等主題規劃系列長圖與電子報，結合圖表化降低認知負擔。', 'img/edm.png')">
+          <div class="card-thumb">
+            <span class="card-tag">數位行銷</span>
+            <img src="img/edm.png" alt="主題 EDM">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">主題 EDM 與內容行銷視覺</h3>
+            <p class="card-desc">針對 B2B 訪客互動規劃系列主題 EDM，結合內容圖表化與自動化寄送，提升開信互動並有效培育潛在名單。</p>
+          </div>
+        </div>
+
+        <!-- 2. 電商購物作品系列 (整合流行時尚、旅遊生活與行銷活動) -->
+        <div class="work-card" data-cat="ecommerce" onclick="openModal('潮流時尚檔期活動主視覺', '掌握電商熱烈促銷氛圍，運用大膽排版營造強烈視覺吸引力。', 'img/fashion.png')">
+          <div class="card-thumb">
+            <span class="card-tag">電商購物 · 時尚</span>
+            <img src="img/fashion.png" alt="時尚促銷主視覺">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">潮流時尚檔期活動視覺</h3>
+            <p class="card-desc">掌握快節奏的電商檔期氛圍，運用層次豐富的色彩與排版突出主題，提升客群的點擊與促購意願。</p>
+          </div>
+        </div>
+
+        <div class="work-card" data-cat="ecommerce" onclick="openModal('旅遊度假主題企劃視覺', '大器放鬆的情境營造，透過氛圍排版引起出遊與訂購共鳴。', 'img/travel.png')">
+          <div class="card-thumb">
+            <span class="card-tag">電商購物 · 旅遊</span>
+            <img src="img/travel.png" alt="旅遊主題企劃">
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">旅遊度假主題活動視覺</h3>
+            <p class="card-desc">以生活風格為導向的情境編排，透過氛圍營造打破生硬促銷感，提升頁面停留時間並帶動相關商品銷售。</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- ================= 前端切版實作專區 (獨立展示 3 個精選案例) ================= -->
+  <section class="section" id="live-demos" style="background: #f8fafc; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title"><i class="fa-solid fa-laptop-code" style="color: var(--primary); margin-right: 8px;"></i>前端切版實作 (Live Demo)</h2>
+        <p class="section-subtitle">獨立自力切版專案，點擊按鈕可直接開啟線上網站，自由縮放視窗檢驗 RWD 斷點與 CSS 細節</p>
+      </div>
+
+      <div class="gallery-grid">
+
+        <!-- 案例 1：大型商務官網 -->
+        <div class="work-card">
+          <div class="card-thumb">
+            <span class="card-tag">網站互動設計</span>
+            <img src="img/website demo-1.png" alt="明筑建設">
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">企業網站互動設計</h4>
+            <p class="card-desc">運用 CSS3 動畫與前端輕量互動效果，設計滑鼠懸停、視差滾動等，在維持頁面載入速度的前提下，提升視覺引導感與瀏覽趣味性。</p>
+            <div style="padding-top: 12px; border-top: 1px solid var(--border-color);">
+              <a href="https://wendy198622.github.io/202311_ARCH/index.html" target="_blank" class="btn-live-link">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> 開啟線上切版網站
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 案例 2：產品型網站 (對標 3C/規格產品) -->
+        <div class="work-card">
+          <div class="card-thumb">
+            <!-- <span class="card-tag">多頁面 RWD</span> -->
+            <img src="img/website demo-2.png" alt="華登">
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">企業網站 RWD 設計</h4>
+            <p class="card-desc">針對架構較龐大的商務網站進行自力切版，規劃嚴謹的斷點與流體排版，確保 Desktop、Tablet 到 Mobile 跨裝置皆能精準還原版面並維持高載入效能。</p>
+            <div style="padding-top: 12px; border-top: 1px solid var(--border-color);">
+              <a href="https://wendy198622.github.io/202207_HD/" target="_blank" class="btn-live-link">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> 開啟線上切版網站
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 案例 3：一頁式企劃頁 -->
+        <div class="work-card">
+          <div class="card-thumb">
+            <span class="card-tag">一頁式網站</span>
+            <img src="img/website demo-3.png" alt="禾雅">
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">一頁式網頁切版</h4>
+            <p class="card-desc">結合活動訴求，獨立完成一頁式網站切版，並且調校手機端單手瀏覽動線，強化引導至表單諮詢或購買轉換。</p>
+            <div style="padding-top: 12px; border-top: 1px solid var(--border-color);">
+              <a href="https://wendy198622.github.io/202008_hoya/" target="_blank" class="btn-live-link">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> 開啟線上切版網站
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- ================= 切版專區結束 ================= -->
+
+  <!-- 彈窗 Lightbox Modal -->
+  <div class="modal-overlay" id="workModal" onclick="closeModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <h2 id="modalTitle" style="font-size:22px; font-weight:800; margin-bottom:8px;"></h2>
+      <p id="modalDesc" style="color:var(--text-muted); font-size:14px; margin-bottom:16px;"></p>
+      <div class="modal-img-wrap">
+        <img id="modalImg" src="" alt="專案預覽">
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    // 嚴格限定只對 #archives 裡面的卡片做篩選，不影響上面的切版專區
+    const filterBtns = document.querySelectorAll('#archives .filter-btn');
+    const archiveCards = document.querySelectorAll('#archives .work-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.getAttribute('data-filter');
+        archiveCards.forEach(card => {
+          if (filter === 'all' || card.getAttribute('data-cat') === filter) {
+            card.classList.remove('hide');
+          } else {
+            card.classList.add('hide');
+          }
+        });
+      });
+    });
+
+    // 彈窗放大功能
+    function openModal(title, desc, imgSrc) {
+      document.getElementById('modalTitle').innerText = title;
+      document.getElementById('modalDesc').innerText = desc;
+      document.getElementById('modalImg').src = imgSrc;
+      document.getElementById('workModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('workModal').classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    // 雙頁籤切換
+    function switchCaseTab(event, imgId, newSrc, titleText) {
+      event.stopPropagation();
+      const parentWrapper = event.target.closest('.case-visual-wrapper');
+      const tabs = parentWrapper.querySelectorAll('.tab-btn');
+      tabs.forEach(tab => tab.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+
+      const targetImg = document.getElementById(imgId);
+      targetImg.src = newSrc;
+      targetImg.alt = titleText;
+    }
+
+    function openCurrentCaseModal(imgId) {
+      const targetImg = document.getElementById(imgId);
+      const title = targetImg.alt;
+      const desc = title.includes('Figma') 
+        ? '建立標準化 Figma 元件庫，涵蓋文字樣式、按鈕多態、表單元件與通知模組。' 
+        : '建立企業品牌識別手冊，規範色彩配比、Logo 安全範圍與字型應用。';
+      openModal(title, desc, targetImg.src);
+    }
+  </script>
 
 </body>
-
 </html>
